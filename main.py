@@ -1,16 +1,20 @@
-# This is a sample Python script.
+from ast import increment_lineno
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import numpy as np
+import cv2
+import matplotlib
+from matplotlib import pyplot as plt
 
+ plt.imshow(img)
+print(img.shape)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+plt.imshow(gray, cmap='gray')
+plt.show()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+face_cascade = cv2.CascadeClassifier('./model/opencv/haarcascades/'
+                                     'haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('./model/opencv/haarcascades/'
+                                    'haarcascade_eye.xml')
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+print(faces)
