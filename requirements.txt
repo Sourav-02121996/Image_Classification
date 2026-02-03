@@ -2,5 +2,6 @@ Flask
 numpy
 joblib
 scikit-learn
+gunicorn
 opencv-python-headless==4.13.0.90
 PyWavelets==1.8.0
