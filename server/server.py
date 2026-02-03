@@ -4,7 +4,7 @@ Flask API for sports celebrity image classification.
 """
 
 from flask import Flask, request, jsonify
-import util
+from . import util
 
 app = Flask(__name__)
 

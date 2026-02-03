@@ -9,7 +9,7 @@ import numpy as np
 import base64
 import cv2
 from pathlib import Path
-from wavelet import w2d
+from .wavelet import w2d
 
 # Project paths used for model artifacts and OpenCV cascades.
 _BASE_DIR = Path(__file__).resolve().parent
