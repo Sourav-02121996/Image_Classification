@@ -2,3 +2,6 @@ Flask
 numpy
 joblib
 scikit-learn
+PyWavelets==1.8.0
+opencv-python==4.13.0
+seaborn==0.13.2
