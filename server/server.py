@@ -4,9 +4,14 @@ Flask API for sports celebrity image classification.
 """
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from . import util
 
 app = Flask(__name__)
+# Enable CORS for browser-based clients (static frontend on a different origin).
+CORS(app)
+# Load model artifacts at import time for gunicorn workers.
+util.load_saved_artifacts()
 
 
 @app.route('/classify_image', methods=['GET', 'POST'])
@@ -24,7 +29,5 @@ def classify_image():
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Sports Celebrity Image Classification")
-    # Load model artifacts once at startup.
-    util.load_saved_artifacts()
     # Start the development server.
     app.run(port=5000)
